@@ -1,4 +1,4 @@
-sObject Field Value Java Script Copy
+JavaScriptでVisualforceの項目値を操作
 ====================================
 
 JavaScriptでVisualforceの項目値を操作するサンプルコードです。  
