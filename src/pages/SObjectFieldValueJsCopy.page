@@ -1,0 +1,45 @@
+<apex:page standardController="Opportunity" extensions="SObjectFieldValueJsCopyController" showHeader="true" sidebar="false" id="page">
+    <apex:sectionHeader title="Force.com" subTitle="sObject Field Value JavaScript Copy" />
+    <apex:form id="form">
+        <apex:pageBlock id="block">
+            <apex:pageBlockButtons id="buttons">
+                <apex:commandButton value=" Copy " onclick="return fieldValueCopy();" id="copyBtn" />
+                <apex:commandButton value=" Save " action="{!doSave}" reRender="form,stdSection,inputSection" id="saveBtn" />
+            </apex:pageBlockButtons>
+        	<apex:pageBlockSection title="Standered Controller Field" collapsible="false" id="stdSection">
+                <apex:inputField value="{!Opportunity.Name}" required="false" id="stdName" />
+                <apex:inputField value="{!Opportunity.CloseDate}" required="false" id="stdCloseDate" />
+                <apex:inputField value="{!Opportunity.StageName}" required="false" id="stdStageName" />
+                <apex:inputField value="{!Opportunity.Amount}" required="false" id="stdAmount" />
+                <apex:inputField value="{!Opportunity.IsPrivate}" required="false" id="stdIsPrivate" />
+                <apex:inputField value="{!Opportunity.Description}" required="false" id="stdDescription" />
+                <apex:inputField value="{!Opportunity.AccountId}" required="false" id="stdAccount" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Input Field" collapsible="false" id="inputSection">
+                <apex:inputField value="{!oppInput.Name}" id="inputName" />
+                <apex:inputField value="{!oppInput.CloseDate}" id="inputCloseDate" />
+                <apex:inputField value="{!oppInput.StageName}" id="inputStageName" />
+                <apex:inputField value="{!oppInput.Amount}" id="inputAmount" />
+                <apex:inputField value="{!oppInput.IsPrivate}" id="inputIsPrivate" />
+                <apex:inputField value="{!oppInput.Description}" id="inputDescription" />
+                <apex:inputField value="{!oppInput.AccountId}" id="inputAccount" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Output Field" collapsible="false" id="outputSection">
+                <apex:outputField value="{!oppOutput.Name}" id="outputName" />
+                <apex:outputField value="{!oppOutput.CloseDate}" id="outputCloseDate" />
+                <apex:outputField value="{!oppInput.StageName}" id="outputStageName" />
+                <apex:outputField value="{!oppInput.Amount}" id="outputAmount" />
+                <apex:pageBlockSectionItem id="outputIsPrivatePanel">
+                    <apex:outputLabel value="{!$ObjectType.Opportunity.Fields.IsPrivate.Label}" />
+                    <apex:outputPanel id="outputIsPrivatePanel">
+                        <apex:image value="/img/checkbox_checked.gif" width="16" height="16" styleClass="checkImg" id="outputIsPrivateChecked" />
+                        <apex:image value="/img/checkbox_unchecked.gif" width="16" height="16" styleClass="checkImg" id="outputIsPrivateUnChecked" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!oppInput.Description}" id="outputDescription"  />
+                <apex:outputField value="{!oppInput.AccountId}" id="outputAccount" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:include pageName="SObjectFieldValueJsCopyScript" />
+</apex:page>

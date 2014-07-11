@@ -1,0 +1,115 @@
+<apex:page >
+    <script type="text/javascript">
+        var stds = {
+            stdName: '{!$Component.form.block.stdSection.stdName}',
+            stdCloseDate: '{!$Component.form.block.stdSection.stdCloseDate}',
+            stdStageName: '{!$Component.form.block.stdSection.stdStageName}',
+            stdAmount: '{!$Component.form.block.stdSection.stdAmount}',
+            stdIsPrivate: '{!$Component.form.block.stdSection.stdIsPrivate}',
+            stdDescription: '{!$Component.form.block.stdSection.stdDescription}',
+            stdAccount: '{!$Component.form.block.stdSection.stdAccount}',
+            stdAccountlkid: '{!$Component.form.block.stdSection.stdAccount}_lkid',
+            stdAccountlkold: '{!$Component.form.block.stdSection.stdAccount}_lkold'
+        };
+
+        var inputs = {
+            inputName: '{!$Component.form.block.inputSection.inputName}',
+            inputCloseDate: '{!$Component.form.block.inputSection.inputCloseDate}',
+            inputStageName: '{!$Component.form.block.inputSection.inputStageName}',
+            inputAmount: '{!$Component.form.block.inputSection.inputAmount}',
+            inputIsPrivate: '{!$Component.form.block.inputSection.inputIsPrivate}',
+            inputDescription: '{!$Component.form.block.inputSection.inputDescription}',
+            inputAccount: '{!$Component.form.block.inputSection.inputAccount}',
+            inputAccountlkid: '{!$Component.form.block.inputSection.inputAccount}_lkid',
+            inputAccountlkold: '{!$Component.form.block.inputSection.inputAccount}_lkold'
+        };
+
+        var outputs = {
+            outputName: '{!$Component.form.block.outputSection.outputName}',
+            outputCloseDate: '{!$Component.form.block.outputSection.outputCloseDate}',
+            outputStageName: '{!$Component.form.block.outputSection.outputStageName}',
+            outputAmount: '{!$Component.form.block.outputSection.outputAmount}',
+            outputIsPrivateChecked: '{!$Component.form:block:outputSection:outputIsPrivatePanel:outputIsPrivateChecked}',
+            outputIsPrivateUnChecked: '{!$Component.form:block:outputSection:outputIsPrivatePanel:outputIsPrivateUnChecked}',
+            outputDescription: '{!$Component.form.block.outputSection.outputDescription}',
+            outputAccount: '{!$Component.form.block.outputSection.outputAccount}'
+        };
+
+        // standeredController
+        console.log('■' + stds.stdName);
+        console.log('■' + stds.stdCloseDate);
+        console.log('■' + stds.stdStageName);
+        console.log('■' + stds.stdAmount);
+        console.log('■' + stds.stdIsPrivate);
+        console.log('■' + stds.stdDescription);
+        console.log('■' + stds.stdAccount);
+        console.log('■' + stds.stdAccountlkid);
+        console.log('■' + stds.stdAccountlkold);
+        // inputField
+        console.log('●' + inputs.inputName);
+        console.log('●' + inputs.inputCloseDate);
+        console.log('●' + inputs.inputStageName);
+        console.log('●' + inputs.inputAmount);
+        console.log('●' + inputs.inputIsPrivate);
+        console.log('●' + inputs.inputDescription);
+        console.log('●' + inputs.inputAccount);
+        console.log('●' + inputs.inputAccountlkid);
+        console.log('●' + inputs.inputAccountlkold);
+        // outputField
+        console.log('▲' + outputs.outputName);
+        console.log('▲' + outputs.outputCloseDate);
+        console.log('▲' + outputs.outputStageName);
+        console.log('▲' + outputs.outputAmount);
+        console.log('▲' + outputs.outputDescription);
+        console.log('▲' + outputs.outputIsPrivateChecked);
+        console.log('▲' + outputs.outputIsPrivateUnChecked);
+        console.log('▲' + outputs.outputAccount);
+
+        function fieldValueCopy() {
+            // inputField
+            document.getElementById(inputs.inputName).value = document.getElementById(stds.stdName).value;
+            document.getElementById(inputs.inputCloseDate).value = document.getElementById(stds.stdCloseDate).value;
+            document.getElementById(inputs.inputStageName).value = document.getElementById(stds.stdStageName).value;
+            document.getElementById(inputs.inputAmount).value = document.getElementById(stds.stdAmount).value;
+            document.getElementById(inputs.inputIsPrivate).checked = document.getElementById(stds.stdIsPrivate).checked;
+            document.getElementById(inputs.inputDescription).value = document.getElementById(stds.stdDescription).value;
+            document.getElementById(inputs.inputAccount).value = document.getElementById(stds.stdAccount).value;
+            document.getElementById(inputs.inputAccountlkid).value = document.getElementById(stds.stdAccountlkid).value;
+            document.getElementById(inputs.inputAccountlkold).value = document.getElementById(stds.stdAccountlkold).value;
+            // outputField
+            document.getElementById(outputs.outputName).innerHTML = document.getElementById(stds.stdName).value;
+            document.getElementById(outputs.outputCloseDate).innerHTML = document.getElementById(stds.stdCloseDate).value;
+            document.getElementById(outputs.outputStageName).innerHTML = document.getElementById(stds.stdStageName).value;
+            document.getElementById(outputs.outputAmount).innerHTML = document.getElementById(stds.stdAmount).value;
+            document.getElementById(outputs.outputDescription).innerHTML = getTextAreaValue(stds.stdDescription);
+            document.getElementById(outputs.outputAccount).innerHTML = document.getElementById(stds.stdAccount).value;
+
+            showOutputIsPrivateChecked();
+            return false;
+        }
+
+        function showOutputIsPrivateChecked() {
+            if (document.getElementById(stds.stdIsPrivate).checked) {
+                document.getElementById(outputs.outputIsPrivateChecked).style.display = 'block';
+                document.getElementById(outputs.outputIsPrivateUnChecked).style.display = 'none';
+            } else {
+                document.getElementById(outputs.outputIsPrivateChecked).style.display = 'none';
+                document.getElementById(outputs.outputIsPrivateUnChecked).style.display = 'block';
+            }
+            return false;
+        }
+
+        function getTextAreaValue(fieldId) {
+            var textAreaValue = document.getElementById(fieldId).value;
+            if (textAreaValue) {
+                textAreaValue = textAreaValue.replace(/\r\n/g, '\n');
+                textAreaValue = textAreaValue.replace(/\r/g, '\n');
+                return textAreaValue.split('\n').join('<br/>');
+            }
+            return textAreaValue;
+        }
+
+        // 初期処理
+        showOutputIsPrivateChecked();
+    </script>
+</apex:page>
