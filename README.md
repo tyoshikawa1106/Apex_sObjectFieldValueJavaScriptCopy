@@ -10,5 +10,5 @@ SaveボタンでinputFieldにセットした値を実際にINSERTで登録でき
 
 
 ##リンク  
-- <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04ti0000000LJ57">パッケージ(Unmanaged Package)</a>
-- <a href="https://www.youtube.com/watch?v=uyDDqllHqjU&feature=youtu.be">デモ動画(YouTube)</a>
+- <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04ti0000000LJ57">パッケージ (Unmanaged Package)</a>
+- <a href="https://www.youtube.com/watch?v=uyDDqllHqjU&feature=youtu.be">デモ動画 (YouTube)</a>
