@@ -4,7 +4,7 @@ JavaScriptでVisualforceの項目値を操作
 JavaScriptでVisualforceの項目値を操作するサンプルコードです。  
 商談詳細ページのカスタムリンクから表示できるようになっています。  
 CopyボタンでstandardControllerの値をinputFieldとoutputFieldの項目にセットします。  
-SaveボタンでinputFieldにセットした値を実際にINSERTで登録します。
+SaveボタンでinputFieldにセットした値をINSERTで登録します。
   
 <img src="http://f.st-hatena.com/images/fotolife/t/tyoshikawa1106/20140712/20140712005619.png" />  
 
